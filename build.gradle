@@ -1,0 +1,20 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+}
+
+SourceDirectorySet mainSources = project.getObjects().sourceDirectorySet('main', 'unusual main source layout')
+mainSources.srcDir('.')
+mainSources.include('com/**/*.java')
+
+sourceSets {
+    main.java.source mainSources
+    test.java.srcDir 'test'
+}
